@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DentistModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clinici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameClinica" Type="varchar" MaxLength="55" />
+    <Property Name="Adresa" Type="varchar" MaxLength="55" />
+    <Property Name="NrTelefon" Type="varchar" MaxLength="55" />
+    <Property Name="Email" Type="varchar" MaxLength="55" />
+  </EntityType>
+  <EntityType Name="Medici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdClinici" Type="int" Nullable="false" />
+    <Property Name="NameMedic" Type="varchar" MaxLength="55" />
+  </EntityType>
+  <EntityType Name="ProfilMedical">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamePacient" Type="varchar" MaxLength="55" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="Alergii" Type="varchar" MaxLength="55" />
+    <Property Name="Gen" Type="varchar" MaxLength="55" />
+    <Property Name="BoliCronice" Type="varchar" MaxLength="55" />
+    <Property Name="GrupaSanguina" Type="varchar" MaxLength="55" />
+  </EntityType>
+  <EntityType Name="Programari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="IdClinica" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="55" />
+    <Property Name="PasswordUser" Type="varchar" MaxLength="55" />
+    <Property Name="NrTelefon" Type="varchar" MaxLength="55" />
+    <Property Name="Email" Type="varchar" MaxLength="55" />
+  </EntityType>
+  <Association Name="FK__Programar__IdCli__6D0D32F4">
+    <End Role="Clinici" Type="Self.Clinici" Multiplicity="1" />
+    <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clinici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Programari">
+        <PropertyRef Name="IdClinica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Programar__IdUse__6E01572D">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Programari">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medici_Clinici">
+    <End Role="Clinici" Type="Self.Clinici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Medici" Type="Self.Medici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clinici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medici">
+        <PropertyRef Name="IdClinici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ProfilMedical">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProfilMedical" Type="Self.ProfilMedical" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfilMedical">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DentistModelStoreContainer">
+    <EntitySet Name="Clinici" EntityType="Self.Clinici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medici" EntityType="Self.Medici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfilMedical" EntityType="Self.ProfilMedical" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programari" EntityType="Self.Programari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Programar__IdCli__6D0D32F4" Association="Self.FK__Programar__IdCli__6D0D32F4">
+      <End Role="Clinici" EntitySet="Clinici" />
+      <End Role="Programari" EntitySet="Programari" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Programar__IdUse__6E01572D" Association="Self.FK__Programar__IdUse__6E01572D">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Programari" EntitySet="Programari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medici_Clinici" Association="Self.FK_Medici_Clinici">
+      <End Role="Clinici" EntitySet="Clinici" />
+      <End Role="Medici" EntitySet="Medici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ProfilMedical" Association="Self.FK_Users_ProfilMedical">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ProfilMedical" EntitySet="ProfilMedical" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

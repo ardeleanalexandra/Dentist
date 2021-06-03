@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DentistModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clinici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameClinica" Type="varchar" MaxLength="55" />
+          <Property Name="Adresa" Type="varchar" MaxLength="55" />
+          <Property Name="NrTelefon" Type="varchar" MaxLength="55" />
+          <Property Name="Email" Type="varchar" MaxLength="55" />
+        </EntityType>
+        <EntityType Name="Medici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClinici" Type="int" Nullable="false" />
+          <Property Name="NameMedic" Type="varchar" MaxLength="55" />
+        </EntityType>
+        <EntityType Name="ProfilMedical">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePacient" Type="varchar" MaxLength="55" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="Alergii" Type="varchar" MaxLength="55" />
+          <Property Name="Gen" Type="varchar" MaxLength="55" />
+          <Property Name="BoliCronice" Type="varchar" MaxLength="55" />
+          <Property Name="GrupaSanguina" Type="varchar" MaxLength="55" />
+        </EntityType>
+        <EntityType Name="Programari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="IdClinica" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="55" />
+          <Property Name="PasswordUser" Type="varchar" MaxLength="55" />
+          <Property Name="NrTelefon" Type="varchar" MaxLength="55" />
+          <Property Name="Email" Type="varchar" MaxLength="55" />
+        </EntityType>
+        <Association Name="FK__Programar__IdCli__6D0D32F4">
+          <End Role="Clinici" Type="Self.Clinici" Multiplicity="1" />
+          <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clinici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Programari">
+              <PropertyRef Name="IdClinica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programar__IdUse__6E01572D">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Programari">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medici_Clinici">
+          <End Role="Clinici" Type="Self.Clinici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Medici" Type="Self.Medici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clinici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medici">
+              <PropertyRef Name="IdClinici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_ProfilMedical">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProfilMedical" Type="Self.ProfilMedical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfilMedical">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DentistModelStoreContainer">
+          <EntitySet Name="Clinici" EntityType="Self.Clinici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medici" EntityType="Self.Medici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfilMedical" EntityType="Self.ProfilMedical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Programari" EntityType="Self.Programari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Programar__IdCli__6D0D32F4" Association="Self.FK__Programar__IdCli__6D0D32F4">
+            <End Role="Clinici" EntitySet="Clinici" />
+            <End Role="Programari" EntitySet="Programari" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programar__IdUse__6E01572D" Association="Self.FK__Programar__IdUse__6E01572D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Programari" EntitySet="Programari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medici_Clinici" Association="Self.FK_Medici_Clinici">
+            <End Role="Clinici" EntitySet="Clinici" />
+            <End Role="Medici" EntitySet="Medici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_ProfilMedical" Association="Self.FK_Users_ProfilMedical">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProfilMedical" EntitySet="ProfilMedical" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DentistModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clinici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameClinica" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="Adresa" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="NrTelefon" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Programari" Relationship="Self.FK__Programar__IdCli__6D0D32F4" FromRole="Clinici" ToRole="Programari" />
+          <NavigationProperty Name="Medici" Relationship="Self.FK_Medici_Clinici" FromRole="Clinici" ToRole="Medici" />
+        </EntityType>
+        <EntityType Name="Medici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClinici" Type="Int32" Nullable="false" />
+          <Property Name="NameMedic" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clinici" Relationship="Self.FK_Medici_Clinici" FromRole="Medici" ToRole="Clinici" />
+        </EntityType>
+        <EntityType Name="ProfilMedical">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePacient" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="Alergii" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="Gen" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="BoliCronice" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="GrupaSanguina" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_ProfilMedical" FromRole="ProfilMedical" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Programari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdClinica" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clinici" Relationship="Self.FK__Programar__IdCli__6D0D32F4" FromRole="Programari" ToRole="Clinici" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Programar__IdUse__6E01572D" FromRole="Programari" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordUser" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="NrTelefon" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProfilMedical" Relationship="Self.FK_Users_ProfilMedical" FromRole="Users" ToRole="ProfilMedical" />
+          <NavigationProperty Name="Programari" Relationship="Self.FK__Programar__IdUse__6E01572D" FromRole="Users" ToRole="Programari" />
+        </EntityType>
+        <Association Name="FK__Programar__IdCli__6D0D32F4">
+          <End Role="Clinici" Type="Self.Clinici" Multiplicity="1" />
+          <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clinici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Programari">
+              <PropertyRef Name="IdClinica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medici_Clinici">
+          <End Role="Clinici" Type="Self.Clinici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Medici" Type="Self.Medici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clinici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medici">
+              <PropertyRef Name="IdClinici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_ProfilMedical">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProfilMedical" Type="Self.ProfilMedical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfilMedical">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programar__IdUse__6E01572D">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Programari">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DentistEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clinici" EntityType="Self.Clinici" />
+          <EntitySet Name="Medici" EntityType="Self.Medici" />
+          <EntitySet Name="ProfilMedical" EntityType="Self.ProfilMedical" />
+          <EntitySet Name="Programari" EntityType="Self.Programari" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Programar__IdCli__6D0D32F4" Association="Self.FK__Programar__IdCli__6D0D32F4">
+            <End Role="Clinici" EntitySet="Clinici" />
+            <End Role="Programari" EntitySet="Programari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medici_Clinici" Association="Self.FK_Medici_Clinici">
+            <End Role="Clinici" EntitySet="Clinici" />
+            <End Role="Medici" EntitySet="Medici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_ProfilMedical" Association="Self.FK_Users_ProfilMedical">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProfilMedical" EntitySet="ProfilMedical" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programar__IdUse__6E01572D" Association="Self.FK__Programar__IdUse__6E01572D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Programari" EntitySet="Programari" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DentistModelStoreContainer" CdmEntityContainer="DentistEntities">
+          <EntitySetMapping Name="Clinici">
+            <EntityTypeMapping TypeName="DentistModel.Clinici">
+              <MappingFragment StoreEntitySet="Clinici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameClinica" ColumnName="NameClinica" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="NrTelefon" ColumnName="NrTelefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medici">
+            <EntityTypeMapping TypeName="DentistModel.Medici">
+              <MappingFragment StoreEntitySet="Medici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdClinici" ColumnName="IdClinici" />
+                <ScalarProperty Name="NameMedic" ColumnName="NameMedic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfilMedical">
+            <EntityTypeMapping TypeName="DentistModel.ProfilMedical">
+              <MappingFragment StoreEntitySet="ProfilMedical">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NamePacient" ColumnName="NamePacient" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Alergii" ColumnName="Alergii" />
+                <ScalarProperty Name="Gen" ColumnName="Gen" />
+                <ScalarProperty Name="BoliCronice" ColumnName="BoliCronice" />
+                <ScalarProperty Name="GrupaSanguina" ColumnName="GrupaSanguina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programari">
+            <EntityTypeMapping TypeName="DentistModel.Programari">
+              <MappingFragment StoreEntitySet="Programari">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="IdClinica" ColumnName="IdClinica" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DentistModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DentistModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+                <ScalarProperty Name="NrTelefon" ColumnName="NrTelefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,59 @@
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\Proiect.exe.config
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\Proiect.exe
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\Proiect.pdb
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.csprojAssemblyReference.cache
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.Properties.Resources.resources
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.csproj.GenerateResource.cache
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.csproj.CoreCompileInputs.cache
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.exe
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.pdb
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\EntityFramework.dll
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\EntityFramework.xml
+C:\Users\alexandra\source\repos\Proiect\Proiect\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.csproj.CopyComplete
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.Register.resources
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.ProfilPacient.resources
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.Login.resources
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.ProgramariPacienti.resources
+C:\Users\alexandra\source\repos\Proiect\Proiect\obj\Debug\Proiect.Admin.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.csprojAssemblyReference.cache
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.Admin.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.Menu.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.Login.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.ProfilPacient.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.ProgramariPacienti.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.Register.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.Properties.Resources.resources
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.csproj.GenerateResource.cache
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.csproj.CoreCompileInputs.cache
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.exe
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.pdb
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\Proiect.exe.config
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\Proiect.exe
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\Proiect.pdb
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\EntityFramework.dll
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\EntityFramework.SqlServer.dll
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\EntityFramework.xml
+D:\Info Industriala\Proiect3\Proiect\Proiect\bin\Debug\EntityFramework.SqlServer.xml
+D:\Info Industriala\Proiect3\Proiect\Proiect\obj\Debug\Proiect.csproj.CopyComplete
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\Proiect.exe.config
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\Proiect.exe
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\Proiect.pdb
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\EntityFramework.dll
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\EntityFramework.xml
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.csprojAssemblyReference.cache
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.Admin.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.Menu.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.Login.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.ProfilPacient.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.ProgramariPacienti.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.Register.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.Properties.Resources.resources
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.csproj.GenerateResource.cache
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.csproj.CoreCompileInputs.cache
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.csproj.CopyComplete
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.exe
+C:\Users\alexandra\Desktop\AN3\sem2\Lab\II\Proiect+UI\Proiect\Proiect\obj\Debug\Proiect.pdb
